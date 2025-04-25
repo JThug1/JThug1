@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>J THUG | Built for chaos. Forged in stars.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: url('https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif') repeat;
+      background-size: cover;
+      animation: moveGalaxy 150s linear infinite;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    @keyframes moveGalaxy {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-50%, -50%); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .logo {
+      font-size: 4em;
+      background: linear-gradient(45deg, #a259ff, #00ffff, #ff00cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px #a259ff;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #5a4ca3;
+    }
+
+    textarea {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #a259ff;
+      border-radius: 10px;
+      padding: 20px;
+      color: #fff;
+      width: 80%;
+      max-width: 600px;
+      font-size: 1.1em;
+      resize: none;
+      margin-bottom: 20px;
+    }
+
+    .save-btn {
+      background-color: #a259ff;
+      color: #fff;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 50px;
+    }
+
+    .save-btn:hover {
+      background-color: #6b1ae2;
+    }
+
+    .section {
+      margin-top: 60px;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      color: #a259ff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #a259ff;
+    }
+
+    iframe {
+      border-radius: 12px;
+      max-width: 100%;
+    }
+
+    .socials a {
+      margin: 0 15px;
+      color: #fff;
+      font-size: 1.2em;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: #a259ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo">J THUG</div>
+    <div class="tagline">Built for chaos. Forged in stars.</div>
+
+    <!-- Textbox -->
+    <textarea id="userInput" rows="6" placeholder="Type your thoughts, bars, or ideas here..."></textarea><br>
+    <button class="save-btn" onclick="saveText()">Save</button>
+
+    <!-- Spotify Music Player -->
+    <div class="section">
+      <h2>🔥 Playlist</h2>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3Uh3le0Ie0pHfvSMChDB5A?utm_source=generator" width="80%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <!-- Merch Coming Soon -->
+    <div class="section">
+      <h2>🛍️ Merch Coming Soon</h2>
+      <p>J THUG limited drops coming soon. Hoodies, tees, cosmic fits. Stay tuned.</p>
+    </div>
+
+    <!-- Social Links -->
+    <div class="section">
+      <h2>📱 Follow J Thug</h2>
+      <div class="socials">
+        <a href="https://www.youtube.com/channel/UCcb-99qkfmYf5877HeYXmAQ/community" target="_blank">YouTube</a>
+        <a href="https://kick.com/faze-thug1" target="_blank">Kick</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const textbox = document.getElementById('userInput');
+    window.onload = () => {
+      textbox.value = localStorage.getItem('jthugText') || '';
+    };
+    function saveText() {
+      localStorage.setItem('jthugText', textbox.value);
+      alert('💾 Saved in your browser!');
+    }
+  </script>
+</body>
+</html>
