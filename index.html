@@ -1,61 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J Thug</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-d2e7Yp0QK7tDbQr8aQ8X+Jjg2hKc/l7LmQO3vSjrdQ5ew6yGblQJZ/OuC6LhN9+WjW8x0gZV+OAZKXh9Ws3IxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Oswald', sans-serif; background: #111; color: #eee; }
-        a { text-decoration: none; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #000; }
-        .logo img { height: 60px; }
-        nav a { color: #eee; margin-left: 1.5rem; font-weight: 400; transition: color 0.3s; }
-        nav a:hover { color: #f00; }
-        main { text-align: center; padding: 4rem 2rem; }
-        h1 { font-size: 4rem; letter-spacing: 4px; margin-bottom: 1rem; }
-        p { font-size: 1.25rem; opacity: 0.8; }
-        .socials { margin-top: 2.5rem; }
-        .socials a { margin: 0 1rem; font-size: 2rem; transition: color 0.3s; color: #eee; }
-        .socials a:hover { color: #f00; }
-        footer { text-align: center; padding: 1rem; font-size: 0.85rem; color: #555; }
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 { font-size: 3rem; }
-            .socials a { font-size: 1.5rem; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J Thug</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Oswald', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #111;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 400;
+      transition: color 0.3s;
+      color: #fff;
+    }
+    nav a:hover {
+      color: #8e2de2;
+    }
+    main {
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.25rem;
+      opacity: 0.85;
+    }
+    .neon-text {
+      color: #fff;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #8e2de2,
+        0 0 30px #8e2de2,
+        0 0 40px #8e2de2,
+        0 0 55px #8e2de2,
+        0 0 75px #8e2de2;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes neonGlow {
+      from {
+        text-shadow:
+          0 0 5px #fff,
+          0 0 10px #fff,
+          0 0 20px #8e2de2,
+          0 0 30px #8e2de2,
+          0 0 40px #8e2de2,
+          0 0 55px #8e2de2,
+          0 0 75px #8e2de2;
+      }
+      to {
+        text-shadow:
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 30px #8e2de2,
+          0 0 40px #8e2de2,
+          0 0 50px #8e2de2,
+          0 0 65px #8e2de2,
+          0 0 85px #8e2de2;
+      }
+    }
+    .socials {
+      margin-top: 2.5rem;
+    }
+    .socials a {
+      margin: 0 1rem;
+      font-size: 2rem;
+      transition: color 0.3s;
+      color: #fff;
+    }
+    .socials a:hover {
+      color: #8e2de2;
+    }
+    form {
+      margin-top: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(142, 45, 226, 0.4);
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #222;
+      color: #fff;
+    }
+    form button {
+      background: #8e2de2;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: #a044ff;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 3rem;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .socials a {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="J Thug Logo">
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#social">Socials</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">
+      <h1 class="neon-text">J Thug</h1>
+    </div>
+    <nav>
+      <a href="#social">Socials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <main>
-        <h1>J Thug</h1>
-        <p>Welcome to the official hub of J Thug, where street art meets beats.</p>
+  <main>
+    <p class="neon-text">Welcome to the official hub of J Thug, where street art meets beats.</p>
 
-        <section id="social" class="socials">
-            <a href="https://x.com/polakk67208h" target="_blank" aria-label="X"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.youtube.com/@fazepolakk" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.twitch.tv/cockcarson" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
-        </section>
-    </main>
+    <section id="social" class="socials">
+      <a href="https://x.com/polakk67208h" target="_blank" aria-label="X"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/@fazepolakk" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.twitch.tv/cockcarson" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+    </section>
 
-    <footer>
-        &copy; 2025 J Thug. All rights reserved.
-    </footer>
+    <section id="contact">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="_replyto" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 J Thug. All rights reserved.
+  </footer>
 </body>
 </html>
