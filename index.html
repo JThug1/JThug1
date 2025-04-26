@@ -1,193 +1,194 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>J Thug</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Oswald', sans-serif;
-      background: #000;
-      color: #fff;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #111;
-    }
-    nav a {
-      margin-left: 1.5rem;
-      font-weight: 400;
-      transition: color 0.3s;
-      color: #fff;
-    }
-    nav a:hover {
-      color: #8e2de2;
-    }
-    main {
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    h1 {
-      font-size: 4rem;
-      letter-spacing: 4px;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.25rem;
-      opacity: 0.85;
-    }
-    .neon-text {
-      color: #fff;
-      text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #8e2de2,
-        0 0 30px #8e2de2,
-        0 0 40px #8e2de2,
-        0 0 55px #8e2de2,
-        0 0 75px #8e2de2;
-      animation: neonGlow 1.5s ease-in-out infinite alternate;
-    }
-    @keyframes neonGlow {
-      from {
-        text-shadow:
-          0 0 5px #fff,
-          0 0 10px #fff,
-          0 0 20px #8e2de2,
-          0 0 30px #8e2de2,
-          0 0 40px #8e2de2,
-          0 0 55px #8e2de2,
-          0 0 75px #8e2de2;
-      }
-      to {
-        text-shadow:
-          0 0 10px #fff,
-          0 0 20px #fff,
-          0 0 30px #8e2de2,
-          0 0 40px #8e2de2,
-          0 0 50px #8e2de2,
-          0 0 65px #8e2de2,
-          0 0 85px #8e2de2;
-      }
-    }
-    .socials {
-      margin-top: 2.5rem;
-    }
-    .socials a {
-      margin: 0 1rem;
-      font-size: 2rem;
-      transition: color 0.3s;
-      color: #fff;
-    }
-    .socials a:hover {
-      color: #8e2de2;
-    }
-    form {
-      margin-top: 3rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      background: #111;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(142, 45, 226, 0.4);
-    }
-    form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #fff;
-    }
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 6px;
-      background: #222;
-      color: #fff;
-    }
-    form button {
-      background: #8e2de2;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    form button:hover {
-      background: #a044ff;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
-      color: #555;
-      margin-top: 3rem;
-    }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 3rem;
-      }
-      .socials a {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GambleX</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@7.22.10/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <h1 class="neon-text">J Thug</h1>
-    </div>
-    <nav>
-      <a href="#social">Socials</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
 
-  <main>
-    <p class="neon-text">Welcome to the official hub of J Thug, where street art meets beats.</p>
+    const apiBaseUrl = 'http://localhost:5000/api';
 
-    <section id="social" class="socials">
-      <a href="https://x.com/polakk67208h" target="_blank" aria-label="X"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.youtube.com/@fazepolakk" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.twitch.tv/cockcarson" target="_blank" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
-    </section>
+    // Login Component
+    function Login({ setUser }) {
+      const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
 
-    <section id="contact">
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+      const handleLogin = async (e) => {
+        e.preventDefault();
+        const res = await fetch(`${apiBaseUrl}/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          localStorage.setItem('token', data.token);
+          setUser(data.user);
+        } else {
+          alert('Login failed');
+        }
+      };
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="_replyto" required>
+      return (
+        <div className="max-w-sm mx-auto p-4 bg-gray-100 rounded">
+          <h2 className="text-xl font-bold">Login</h2>
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="w-full p-2 mb-2 border"
+              required
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              className="w-full p-2 mb-2 border"
+              required
+            />
+            <button className="w-full bg-blue-500 text-white p-2 rounded">Login</button>
+          </form>
+        </div>
+      );
+    }
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+    // Balance Component
+    function Balance({ user, setUser }) {
+      const [amount, setAmount] = useState('');
+      const [action, setAction] = useState('deposit');
 
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
+      const handleTransaction = async () => {
+        const res = await fetch(`${apiBaseUrl}/${action}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+          body: JSON.stringify({ amount: parseFloat(amount) }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          setUser({ ...user, balance: data.balance });
+          alert(`${action} done!`);
+        } else {
+          alert('Failed');
+        }
+      };
 
-  <footer>
-    &copy; 2025 J Thug. All rights reserved.
-  </footer>
-</body>
-</html>
+      return (
+        <div className="max-w-sm mx-auto p-4 bg-gray-100 rounded">
+          <h2 className="text-xl font-bold">Balance: ${user.balance}</h2>
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Amount"
+            className="w-full p-2 mb-2 border"
+          />
+          <select value={action} onChange={(e) => setAction(e.target.value)} className="w-full p-2 mb-2 border">
+            <option value="deposit">Deposit</option>
+            <option value="withdraw">Withdraw</option>
+          </select>
+          <button onClick={handleTransaction} className="w-full bg-green-500 text-white p-2 rounded">
+            {action}
+          </button>
+        </div>
+      );
+    }
+
+    // Mines Component
+    function Mines() {
+      const [bet, setBet] = useState(1);
+      const [grid, setGrid] = useState(Array(9).fill(null));
+      const [gameOver, setGameOver] = useState(false);
+
+      const startGame = async () => {
+        const res = await fetch(`${apiBaseUrl}/mines`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+          body: JSON.stringify({ bet }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          setGrid(Array(9).fill(null));
+          setGameOver(false);
+        } else {
+          alert('Low balance');
+        }
+      };
+
+      const revealTile = async (index) => {
+        if (gameOver || grid[index]) return;
+        const res = await fetch(`${apiBaseUrl}/mines/reveal`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+          body: JSON.stringify({ index }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          const newGrid = [...grid];
+          newGrid[index] = data.result;
+          setGrid(newGrid);
+          if (data.result === 'bomb') {
+            setGameOver(true);
+            alert('Boom! Game over.');
+          } else if (data.won) {
+            setGameOver(true);
+            alert(`Won $${data.payout}!`);
+          }
+        }
+      };
+
+      return (
+        <div className="max-w-sm mx-auto p-4 bg-gray-100 rounded">
+          <h2 className="text-xl font-bold">Mines</h2>
+          <input
+            type="number"
+            value={bet}
+            onChange={(e) => setBet(e.target.value)}
+            placeholder="Bet"
+            className="w-full p-2 mb-2 border"
+          />
+          <button onClick={startGame} className="w-full bg-blue-500 text-white p-2 rounded mb-2">
+            Start
+          </button>
+          <div className="grid grid-cols-3 gap-1">
+            {grid.map((tile, i) => (
+              <button
+                key={i}
+                onClick={() => revealTile(i)}
+                className={`p-3 border ${tile === 'bomb' ? 'bg-red-500' : tile === 'safe' ? 'bg-green-500' : 'bg-gray-200'}`}
+                disabled={gameOver || tile}
+              >
+                {tile || '?'}
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    // Case Battles Component
+    function CaseBattles() {
+      const [bet, setBet] = useState(1);
+      const [result, setResult] = useState(null);
+
+      const startBattle = async () => {
+        const res = await fetchLARGER_THAN_3000_CHARACTERS
